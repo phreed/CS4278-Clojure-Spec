@@ -1,6 +1,7 @@
 (ns spec-sort.functional 
    "a demonstration of specing functions" 
     (:require 
+        (clojure [pprint :as pp])
         #?(:clj  [clojure.spec.alpha :as s]
            :cljs [cljs.spec.alpha :as s])
         #?(:clj  [clojure.spec.gen.alpha :as gen]
@@ -24,7 +25,9 @@
             #(< (:ret %) (-> % :args :end))))
 
 
-(defn exercise [] (s/exercise-fn `ranged-rand))              
+(defn exercise [] 
+    ; (pp/pprint 
+        (s/exercise-fn `ranged-rand))              
 
 ;; 1K test.checks you do not have to write
 ;; with SHRINKING
@@ -33,4 +36,3 @@
 
 (stest/instrument `ranged-rand)
 
-;(ranged-rand 42 11)

@@ -33,8 +33,8 @@
 
 (defn check-samples [spec sample-s]
     (for [sample sample-s] 
-        (if (s/valid? ::syntax sample)
-            (pp/pprint (s/conform ::syntax sample))
-            (s/explain ::syntax sample))))
+        (if (s/valid? spec sample)
+            (pp/pprint (s/conform spec sample))
+            (s/explain spec sample))))
 
-(defn exercise-syntax [] (s/exercise ::syntax))
+
